@@ -1,0 +1,111 @@
+.header {
+    height: 74px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    padding: 17px;
+}
+
+.headerLeftSection {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 93px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.iconSvg {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background-color: #D4DBFC;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerLeftText {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17.07px;
+    color: #3A3C40;
+}
+
+.headerSectionsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 518px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerSections {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.newUserButtonContainer {
+    width: 170px;
+    height: 40px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.newUserButton {
+    font-size: 13px;
+    line-height: 15.85px;
+    border-radius: 4px;
+}
+
+.css-heg063-MuiTabs-flexContainer {
+    gap: 15px;
+
+}
+
+.headerSectionsContainer {
+    position: relative;
+    height: 48px;
+    width: 518px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    top: 25.5px;
+}
+
+.coice {
+    display: flex;
+    position: absolute;
+    height: 60px;
+    gap: 30px;
+
+}
+
+.headerSectionsContainer .MuiButtonBase-root.MuiTab-root {
+    font-size: 13px;
+    padding: 0px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: start;
+    color: #82868C;
+    line-height: 15.85px;
+    flex-direction: column;
+
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    font-size: 13px;
+    padding: 0px;
+    text-transform: lowercase;
+    color: #2940D3 !important;
+    font-weight: 600;
+
+}

@@ -1,0 +1,12 @@
+.managmentContianer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    background-color: #BABFC5;
+    height: 2px;
+    width: 100%;
+    z-index: -12121;
+}
