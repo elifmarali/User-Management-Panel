@@ -43,7 +43,6 @@
     width: 100%;
     display: flex;
     justify-content: start;
-    margin-right: 40px;
 }
 
 .rightSection {
@@ -58,16 +57,24 @@
     font-weight: 600;
     line-height: 14.63px;
     width: 30vw;
+    max-width: 30vw;
     display: flex;
     justify-content: start;
 }
 
 .usersTopEdit {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14.63px;
+    display: flex;
+    justify-content: start;
+    max-width: 20vw;
     width: 20vw;
 }
 
 .usersList {
-    width: 100%;
+    width: 100vw;
     background-color: #fff;
 }
 
@@ -88,15 +95,18 @@
     font-weight: 500;
     line-height: 14.63px;
     text-align: left;
-    width: 30vw;
+    max-width: 30vw;
     color: #3A3C40;
+    width: 30vw;
 }
 
 .usersEdit {
-    width: 20vw;
+    max-width: 20vw;
     display: flex;
     gap: 8px;
+    width: 20vw;
 }
+
 
 
 .userImage {
@@ -106,4 +116,52 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+}
+
+@media screen and (max-width:1290px) {
+    .usersTopText {
+        max-width: 20vw;
+    }
+
+    .usersTopEdit {
+        max-width: 15vw;
+    }
+
+    .usersText {
+        max-width: 20vw;
+    }
+
+    .usersEdit {
+        max-width: 15vw;
+    }
+}
+
+
+@media screen and (max-width:1030px) {
+    .usersTopText {
+        max-width: 15vw;
+    }
+
+    .usersTopEdit {
+        max-width: 10vw;
+    }
+
+    .usersText {
+        max-width: 15vw;
+    }
+
+    .usersEdit {
+        max-width: 10vw;
+    }
+}
+
+
+
+
+
+@media screen and (max-width:640px) {
+    .userItemIcon {
+        max-width: 22px;
+        max-height: 22px;
+    }
 }

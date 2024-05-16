@@ -1,19 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./app.css";
 import UserContext from "../../context/UserContext";
 import UserItem from "../UserItem";
 function UserList() {
-  const { usersData } = useContext(UserContext);
+  const {
+    usersData,
+    selectedClick,
+    filteredRoleUsers,
+    selectedChoice,
+    clickAll,
+  } = useContext(UserContext);
+
+  const [isCheckedAll, setIsCheckedAll] = useState(clickAll);
+
+  useEffect(() => {
+    setIsCheckedAll(clickAll);
+  }, [clickAll]);
+
+  const handleChangeSelectedAll = () => {
+    const newChecked = !isCheckedAll;
+    setIsCheckedAll(newChecked);
+    selectedClick({ type: "all", isChecked: newChecked });
+  };
+
   return (
     <div className="usersContainer">
       <div className="usersTopContainer">
         <div className="usersTop">
           <div className="usersTopLeft">
             <input
+              checked={isCheckedAll}
               type="checkbox"
               name="selectedAll"
               id="selectedAll"
               className="selectedCheckbox"
+              onChange={() => handleChangeSelectedAll()}
             />
             <span className="usersTopText">Avatar</span>
           </div>
@@ -29,9 +50,13 @@ function UserList() {
         </div>
       </div>
       <div className="usersList">
-        {usersData.map((user) => {
-          return <UserItem user={user} id={user.id} key={user.id} />;
-        })}
+        {selectedChoice !== "all"
+          ? filteredRoleUsers.map((user) => {
+              return <UserItem user={user} id={user.id} key={user.id} />;
+            })
+          : usersData.map((user) => {
+              return <UserItem user={user} id={user.id} key={user.id} />;
+            })}
       </div>
     </div>
   );

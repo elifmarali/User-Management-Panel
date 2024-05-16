@@ -109,3 +109,33 @@
     font-weight: 600;
 
 }
+
+@media screen and (max-width:860px) {
+
+    .header {
+        width: 100%
+    }
+
+    .css-1d6wzja-MuiButton-startIcon {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+
+    }
+
+    .newUserButtonContainer {
+        width: 60px !important;
+    }
+
+    .newUserButton,
+    span {
+        display: none;
+    }
+
+    .headerLeftText {
+        display: none;
+    }
+
+    .css-heg063-MuiTabs-flexContainer {
+        gap: 0px !important;
+    }
+}

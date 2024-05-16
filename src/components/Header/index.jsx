@@ -4,13 +4,18 @@ import { Button, Tab, Tabs } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
+import FormContext from "../../context/FormContext";
 function Header() {
   const { selectedChoice, setSelectedChoice } = useContext(UserContext);
-  console.log(selectedChoice);
-
+  let { setOpen } = useContext(FormContext);
   const handleChangeChoice = (event, newValue) => {
     setSelectedChoice(newValue);
   };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <div className="header">
       <div className="headerLeftSection">
@@ -66,14 +71,14 @@ function Header() {
           </Tabs>
         </div>
       </div>
-      <div className="newUserButtonContainer">
+      <div className="newUserButtonContainer" onClick={() => handleOpen()}>
         <Button
           variant="contained"
-          startIcon={<AddIcon />}
+          startIcon={<AddIcon sx={{ textAlign: "center" }} />}
           style={{ background: "#2940D3", padding: " 12px, 20px, 12px, 15px" }}
           className="newUserButton"
         >
-          Add New User
+          <span> Add New User</span>
         </Button>
       </div>
     </div>

@@ -38,7 +38,23 @@ function UserProvider({ children }) {
       color: "#eaefff",
     },
   ];
+  const [selectUsers, setSelectUsers] = useState([]);
+  const [clickAll, setClickAll] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredRoleUsers, setFilteredRoleUsers] = useState([]);
+  console.log(selectUsers);
+  useEffect(() => {
+    setSelectUsers([]);
+    setClickAll(false);
+  }, [selectedChoice]);
 
+  useEffect(() => {
+    searching();
+  }, [search]);
+
+  useEffect(() => {
+    filterRole();
+  }, [selectedChoice]);
   const getData = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -123,7 +139,99 @@ function UserProvider({ children }) {
     setUsersData(updatedData);
   };
 
-  const data = { selectedChoice, setSelectedChoice, usersData };
+  const deleteUserItem = async (id) => {
+    try {
+      const response = await axios.delete(`${API_URL}/${id}`);
+      getData();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const selectedClick = ({ type, isChecked }) => {
+    if (type === "all") {
+      if (!isChecked) {
+        setSelectUsers([]);
+        setClickAll(false);
+      } else {
+        const selectedUsers =
+          selectedChoice !== "all"
+            ? filteredRoleUsers.map((user) => user.id)
+            : usersData.map((user) => user.id);
+        setSelectUsers(selectedUsers);
+        setClickAll(true);
+      }
+    } else {
+      if (!isChecked) {
+        const filterUsers = selectUsers.filter((id) => id !== type);
+        setSelectUsers(filterUsers);
+      } else {
+        setSelectUsers([...selectUsers, type]);
+      }
+    }
+  };
+
+  const selectedDelete = async () => {
+    try {
+      await Promise.all(
+        selectUsers.map(async (id) => {
+          const response = await axios.delete(`${API_URL}/${id}`);
+          if (response.status === 200) {
+            setSelectUsers((prevUsers) =>
+              prevUsers.filter((userId) => userId !== id)
+            );
+            setClickAll(false);
+          }
+        })
+      );
+      getData();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const searching = () => {
+    if (search) {
+      const filteredUsers = usersData.filter(
+        (user) =>
+          user.username.toLowerCase().includes(search.toLocaleLowerCase()) ||
+          user.email.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+      setUsersData(filteredUsers);
+    } else {
+      getData();
+    }
+  };
+
+  const filterRole = () => {
+    if (selectedChoice !== "all") {
+      const roleFilteredUsers = usersData.filter((user) => {
+        let userRole = user.role.toLowerCase();
+        return selectedChoice === userRole;
+      });
+      if (roleFilteredUsers.length === 0) {
+        setFilteredRoleUsers([]);
+      } else {
+        setFilteredRoleUsers(roleFilteredUsers);
+      }
+    } else {
+      getData();
+    }
+  };
+
+  const data = {
+    selectedChoice,
+    setSelectedChoice,
+    usersData,
+    deleteUserItem,
+    selectedClick,
+    selectUsers,
+    selectedDelete,
+    search,
+    setSearch,
+    filteredRoleUsers,
+    clickAll,
+  };
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 }
 
