@@ -36,3 +36,45 @@ User Management Panel, kullanıcıların yönetimini kolaylaştıran bir web uyg
    ```
 
 ## Proje Gorselleri
+
+### Sayfa Tasarımı
+<img width="1440" alt="Ekran Resmi 2024-05-18 17 57 01" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/08c312f3-e3f7-405d-8c67-82f2671000d9">
+
+### Role Göre Listeleme
+<img width="1440" alt="Ekran Resmi 2024-05-18 17 56 56" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/3fc54e71-c1d8-4d79-9218-428311fad6ba">
+
+### Tümünü Seçme
+Silme işlemi yapılabilir.
+<img width="1440" alt="Ekran Resmi 2024-05-18 17 57 08" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/84866849-cb32-4480-8d27-a12390ccabb5">
+
+### Sayfalama Kısmı
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 16 32" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/cbe660ac-c2f9-4bc9-aed2-67f4114b7c16">
+
+### Düzenleme Formu
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 22 45" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/e8c22f29-d803-452a-8ca4-c8ba045f74f4">
+
+### Yeni Kullanıcı Ekleme Formu
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 41 01" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/010a5cab-45e7-4883-b6c6-c61ba24fabae">
+
+### Yeni Kullanıcı Ekleme Formundaki Değerlerin Girildiği Görüntüsü
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 00 46" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/f7616aa6-7304-49bb-bc5c-e756832a96b0">
+
+### Listelenmiş Kullanıcılar Arasından Email ve Username'e Göre Arama Yapılma Durumu
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 21 06" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/03a2728d-d5d7-4442-8021-2ca638b2fc63"> 
+<img width="1440" alt="Ekran Resmi 2024-05-18 18 21 11" src="https://github.com/elifmarali/User-Managment-Panel/assets/71133148/6ee45726-76e8-44ce-9439-17e90bec44dc">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
