@@ -1,5 +1,5 @@
 import "./App.css";
-import FormPage from "./pages/FormPage/FormPage";
+import FormPage from "./pages/FormModal/FormPage";
 import UserManagment from "./pages/UserManagmentPage/UserManagment";
 
 function App() {

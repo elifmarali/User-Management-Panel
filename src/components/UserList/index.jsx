@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./app.css";
 import UserContext from "../../context/UserContext";
 import UserItem from "../UserItem";
+import { Pagination } from "@mui/material";
+
 function UserList() {
   const {
     usersData,
@@ -11,11 +13,26 @@ function UserList() {
     clickAll,
   } = useContext(UserContext);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(10);
   const [isCheckedAll, setIsCheckedAll] = useState(clickAll);
 
   useEffect(() => {
     setIsCheckedAll(clickAll);
   }, [clickAll]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedChoice, filteredRoleUsers]);
+
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers =
+    selectedChoice !== "all"
+      ? filteredRoleUsers.slice(indexOfFirstUser, indexOfLastUser)
+      : usersData.slice(indexOfFirstUser, indexOfLastUser);
+
+  const paginate = (event, pageNumber) => setCurrentPage(pageNumber);
 
   const handleChangeSelectedAll = () => {
     const newChecked = !isCheckedAll;
@@ -50,14 +67,21 @@ function UserList() {
         </div>
       </div>
       <div className="usersList">
-        {selectedChoice !== "all"
-          ? filteredRoleUsers.map((user) => {
-              return <UserItem user={user} id={user.id} key={user.id} />;
-            })
-          : usersData.map((user) => {
-              return <UserItem user={user} id={user.id} key={user.id} />;
-            })}
+        {currentUsers.map((user) => (
+          <UserItem user={user} id={user.id} key={user.id} />
+        ))}
       </div>
+      <Pagination
+        shape="rounded"
+        style={{ color: "#2940D3" }}
+        count={
+          selectedChoice !== "all"
+            ? Math.ceil(filteredRoleUsers.length / usersPerPage)
+            : Math.ceil(usersData.length / usersPerPage)
+        }
+        page={currentPage}
+        onChange={paginate}
+      />
     </div>
   );
 }

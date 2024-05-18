@@ -118,6 +118,11 @@
     border-radius: 10px;
 }
 
+.css-10w330c-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background: #2940D3 !important;
+    color: #fff !important;
+}
+
 @media screen and (max-width:1290px) {
     .usersTopText {
         max-width: 20vw;

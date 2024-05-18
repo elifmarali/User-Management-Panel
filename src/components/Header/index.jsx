@@ -7,6 +7,7 @@ import { useContext } from "react";
 import FormContext from "../../context/FormContext";
 function Header() {
   const { selectedChoice, setSelectedChoice } = useContext(UserContext);
+  const { setIsCreate } = useContext(FormContext);
   let { setOpen } = useContext(FormContext);
   const handleChangeChoice = (event, newValue) => {
     setSelectedChoice(newValue);
@@ -77,6 +78,7 @@ function Header() {
           startIcon={<AddIcon sx={{ textAlign: "center" }} />}
           style={{ background: "#2940D3", padding: " 12px, 20px, 12px, 15px" }}
           className="newUserButton"
+          onClick={() => setIsCreate(true)}
         >
           <span> Add New User</span>
         </Button>

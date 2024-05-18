@@ -5,9 +5,9 @@ import "./index.css";
 import { UserProvider } from "./context/UserContext.jsx";
 import { FormProvider } from "./context/FormContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <FormProvider>
-    <UserProvider>
+  <UserProvider>
+    <FormProvider>
       <App />
-    </UserProvider>
-  </FormProvider>
+    </FormProvider>
+  </UserProvider>
 );

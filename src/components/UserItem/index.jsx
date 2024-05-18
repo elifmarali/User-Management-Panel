@@ -3,10 +3,12 @@ import "../UserList/app.css";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import UserContext from "../../context/UserContext";
+import FormContext from "../../context/FormContext";
 
 function UserItem({ user, id }) {
   const { deleteUserItem, selectedClick, selectUsers, setSelectUsers } =
     useContext(UserContext);
+  const { setOpen, setIsCreate, getEditUserData } = useContext(FormContext);
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChangeSelect = (id) => {
@@ -26,6 +28,12 @@ function UserItem({ user, id }) {
       setIsChecked(false);
     }
   }, [selectUsers, id]);
+
+  const handleEditClick = (id) => {
+    setOpen(true);
+    setIsCreate(false);
+    getEditUserData(id);
+  };
 
   return (
     <div className="usersContainer">
@@ -61,6 +69,9 @@ function UserItem({ user, id }) {
                   cursor: "pointer",
                 }}
                 className="userItemIcon"
+                onClick={() => {
+                  handleEditClick(id);
+                }}
               />
               <DeleteIcon
                 sx={{
